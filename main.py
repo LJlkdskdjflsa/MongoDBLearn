@@ -54,5 +54,12 @@ todos2 = [
 #result = todos.insert_many(todos2)
 
 #use collection to do things
-result = todos.find_one({"name":"lj"})
-print(result)
+#result = todos.find_one({"name":"lj1","text": "myASDF first todo"})
+
+from bson.objectid import ObjectId
+#result = todos.find_one({"_id":ObjectId("60a0d0550ae1b9473316cba9")})
+results = todos.find({"name":"lj"})
+print(list(results))
+
+for result in results:
+  print(result)
