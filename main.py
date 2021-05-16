@@ -58,8 +58,18 @@ todos2 = [
 
 from bson.objectid import ObjectId
 #result = todos.find_one({"_id":ObjectId("60a0d0550ae1b9473316cba9")})
-results = todos.find({"name":"lj"})
-print(list(results))
+
+#find only live once so can't reprint it
+#results = todos.find({"name":"lj"})
+'''print(list(results))
 
 for result in results:
-  print(result)
+  print(result)'''
+
+#print(todos.count_documents({"name":"lj"}))
+
+'''result = todos.delete_one({"name":"lj1"})
+print(result)'''
+
+result = todos.update_one({"name":"lj2"}, {"$set": {"status": "done"}})
+print(result)
