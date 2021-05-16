@@ -14,7 +14,6 @@ db = client.test
 #print(db.list_collection_names())
 
 todo1 = {
-  "_id": 1,
   "name": "lj",
   "text": "my first todo",
   "status": "open",
@@ -28,4 +27,32 @@ todo1 = {
 todos = db.todos
 #result = todos.insert_one(todo1)
 
+todos2 = [
+  {
+  "name": "lj1",
+  "text": "myASDF first todo",
+  "status": "open",
+  "tags": [
+    "python",
+    "coding"
+  ],
+  "date": datetime.datetime.utcnow()
+}
+  ,
+  {
+  "name": "lj2",
+  "text": "my 2 todo",
+  "status": "close",
+  "tags": [
+    "JAVA",
+    "coding"
+  ],
+  "date": datetime.datetime(2021,1,1,10,15)
+}
+]
 
+#result = todos.insert_many(todos2)
+
+#use collection to do things
+result = todos.find_one({"name":"lj"})
+print(result)
